@@ -1,0 +1,23 @@
+{
+  "name": "github-dev-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elijahlb/Github-Dev-Data.git"
+  },
+  "author": "Elijah Broaddus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elijahlb/Github-Dev-Data/issues"
+  },
+  "homepage": "https://github.com/elijahlb/Github-Dev-Data#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "inquirer": "^7.0.3"
+  }
+}
