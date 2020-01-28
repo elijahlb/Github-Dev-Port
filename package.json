@@ -18,6 +18,7 @@
   "homepage": "https://github.com/elijahlb/Github-Dev-Data#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "inquirer": "^7.0.3"
+    "inquirer": "^7.0.3",
+    "phantom-html-to-pdf": "^0.6.0"
   }
 }

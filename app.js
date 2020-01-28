@@ -4,6 +4,7 @@ const inquirer = require("inquirer");
 const util = require("util");
 
 
+
 function buildProfile() {
 
   inquirer
@@ -45,12 +46,16 @@ function buildProfile() {
         let followers = data.data.followers;
         let location = data.data.location;
         let image = data.data.avatar_url;
+        let repos = data.data.public_repos;
+        let bio = data.data.bio;
+        let blog = data.data.blog;
         let html = 
           `<!DOCTYPE html>
           <html lang="en">
           <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet"> 
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
             <title>Generated Profile</title>
             <style>
@@ -60,24 +65,39 @@ function buildProfile() {
                #header {
                 text-align: center;
                }
+               p {
+                font-family: 'Courier Prime', monospace;
+                font-weight:bold;
+               }
+               img {
+                 margin-top:50px;
+                 margin-bottom:50px;
+                 border: 2px solid black;
+               }
+               a {
+                 font-weight:bold;
+                 text-decoration:none;
+                 color:black;
+               }
             </style>
           </head>
           <body>
           
-            <div class="jumbotron" id="header">
-              <div class="row">
-                 <h1> Developer Profile </h1> 
-              </div>
-            </div>
+           
             <div class='container'>
               <div class='row'>
-                  <div class='col-md-6'>
+                  <div class='col-md-12 text-center'>
                     <img src='${image}' />
                   </div>
-                  <div class='col-md-6'>
-                        <p>Username: ${gitUser}</p>
+              </div>
+              <div class='row'>
+                  <div class='col-md-12 text-center'>
+                        <a href="https://github.com/${gitUser}"><p>Username: ${gitUser}</p></a>
+                        <p>Bio: ${bio}</p>
+                        <a href="https://www.google.com/maps/search/?api=1${location}"><p>Location: ${location}</p></a>
                         <p>Followers: ${followers}</p>
-                        <p>Location: ${location}</p>
+                        <p>Repositories: ${repos}</p>
+                        <p>Blog: ${blog}</p>
                   </div>
               </div>
             </div>
