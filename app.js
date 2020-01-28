@@ -2,7 +2,27 @@ const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
 const util = require("util");
+const convertFactory = require("electron-html-to");
+const electron = require("electron");
 
+
+function pdfGen(data) {
+
+var conversion = convertFactory({
+  converterPath: convertFactory.converters.PDF,
+});
+conversion({html: data}, function(err, result){
+  if (err) {
+      return console.error(err);
+    }
+
+    console.log(result.numberOfPages);
+    console.log(result.logs);
+  result.stream.pipe(fs.createWriteStream('Documents/Bootcamp2019/homework/github-dev-port/profile.pdf'));
+  conversion.kill();
+})
+
+}
 
 
 function buildProfile() {
@@ -42,7 +62,7 @@ function buildProfile() {
     axios.get(githubUrlRequest)
       .then(function (data) {
         let profileData = data.data
-         console.log(profileData);
+      //   console.log(profileData);
         let followers = data.data.followers;
         let location = data.data.location;
         let image = data.data.avatar_url;
@@ -104,6 +124,8 @@ function buildProfile() {
           </body>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
           </html>`;
+
+        pdfGen(html);
         
         
         fs.writeFile('new.html', html, (err) => {
@@ -118,12 +140,11 @@ function buildProfile() {
       .catch(function (error) {
           console.log(error)
       });
-
       
       
     } 
 
-   
+  
 
 }
   
