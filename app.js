@@ -18,7 +18,7 @@ conversion({html: data}, function(err, result){
 
     console.log(result.numberOfPages);
     console.log(result.logs);
-  result.stream.pipe(fs.createWriteStream('Documents/Bootcamp2019/homework/github-dev-port/profile.pdf'));
+  result.stream.pipe(fs.createWriteStream('profile.pdf'));
   conversion.kill();
 })
 
