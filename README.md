@@ -7,6 +7,8 @@
 ## Description
 This is a CLI application that creates a pdf file of any developer, derived simply from a Github Username.
 
+<img width="794" alt="Screen Shot 2020-01-29 at 11 58 18 PM" src="https://user-images.githubusercontent.com/50716060/73421346-85f2f600-42f3-11ea-8db8-89dbdd948182.png">
+
 ​
 ## Setup/Installation Requirements
 ​
